@@ -11,14 +11,11 @@ const api = axios.create({
 
 export const fetchDoctors = async (filters = {}, page = 1, limit = 10) => {
     try {
-        // Convert filters object to query params
         const params = new URLSearchParams();
 
-        // Add pagination params
         params.append('page', page);
         params.append('limit', limit);
 
-        // Add filter params if they exist
         if (filters.gender) params.append('gender', filters.gender);
         if (filters.experience) params.append('experience', filters.experience);
         if (filters.consultationFee) params.append('consultationFee', filters.consultationFee);

@@ -35,7 +35,6 @@ const Filters = ({ onFilterChange }) => {
     };
 
     useEffect(() => {
-        // Apply initial filters when component mounts
         onFilterChange(filters);
     }, []);
 
@@ -63,7 +62,6 @@ const Filters = ({ onFilterChange }) => {
                 </button>
             </div>
 
-            {/* Sort By */}
             <div className="border-b pb-3 mb-3">
                 <div
                     className="flex justify-between items-center cursor-pointer"
@@ -127,7 +125,6 @@ const Filters = ({ onFilterChange }) => {
                 )}
             </div>
 
-            {/* Gender Filter */}
             <div className="border-b pb-3 mb-3">
                 <div
                     className="flex justify-between items-center cursor-pointer"
@@ -179,7 +176,6 @@ const Filters = ({ onFilterChange }) => {
                 )}
             </div>
 
-            {/* Experience Filter */}
             <div className="border-b pb-3 mb-3">
                 <div
                     className="flex justify-between items-center cursor-pointer"
@@ -243,7 +239,6 @@ const Filters = ({ onFilterChange }) => {
                 )}
             </div>
 
-            {/* Consultation Fee Filter */}
             <div className="border-b pb-3 mb-3">
                 <div
                     className="flex justify-between items-center cursor-pointer"
@@ -307,7 +302,6 @@ const Filters = ({ onFilterChange }) => {
                 )}
             </div>
 
-            {/* Availability Filter */}
             <div className="pb-3">
                 <div
                     className="flex justify-between items-center cursor-pointer"

@@ -7,7 +7,6 @@ const Header = () => {
     return (
         <header className="bg-white shadow-md">
             <div className="container mx-auto px-4">
-                {/* Top navigation bar */}
                 <div className="flex items-center justify-between py-3 border-b">
                     <div className="flex items-center">
                         <Link href="/" className="mr-6">
@@ -58,7 +57,6 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/* Breadcrumb navigation */}
                 <div className="py-3 text-sm text-gray-500">
                     <Link href="/" className="hover:text-[#00b3e3]">
                         Home

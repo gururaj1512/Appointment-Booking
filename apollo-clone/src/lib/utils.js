@@ -1,8 +1,8 @@
 /**
- * Format price in Indian Rupees
- * @param {number} amount - Amount to format
- * @returns {string} - Formatted price with ₹ symbol
- */
+* Format price in Indian Rupees
+* @param {number} amount - Amount to format
+* @returns {string} - Formatted price with ₹ symbol
+*/
 export const formatPrice = (amount) => {
     return new Intl.NumberFormat('en-IN', {
         style: 'currency',
@@ -12,10 +12,10 @@ export const formatPrice = (amount) => {
 };
 
 /**
- * Generate SEO metadata for doctor listings
- * @param {object} params - Parameters for meta tags
- * @returns {object} - Meta tags object
- */
+* Generate SEO metadata for doctor listings
+* @param {object} params - Parameters for meta tags
+* @returns {object} - Meta tags object
+*/
 export const generateDoctorsMetadata = ({
     specialty = 'General Physician',
     location = '',

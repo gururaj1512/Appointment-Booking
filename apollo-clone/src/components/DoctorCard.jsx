@@ -19,7 +19,6 @@ const DoctorCard = ({ doctor }) => {
 
     return (
         <div className="apollo-card bg-white rounded shadow-md p-4 mb-4 flex flex-col md:flex-row">
-            {/* Doctor's profile image and quick actions */}
             <div className="md:w-1/4 flex flex-col items-center">
                 <div className="relative w-32 h-32 rounded-full overflow-hidden mb-3">
                     <Image
@@ -42,7 +41,6 @@ const DoctorCard = ({ doctor }) => {
                 </div>
             </div>
 
-            {/* Doctor's information */}
             <div className="md:w-3/4 md:pl-4">
                 <h2 className="text-xl font-semibold text-[#02475b]">{name}</h2>
                 <p className="text-gray-600">{specialty}</p>

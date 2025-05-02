@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head'; // For metadata
+import Head from 'next/head';
 import Header from '../../components/Header';
 import Filters from '../../components/Filters';
 import DoctorCard from '../../components/DoctorCard';
@@ -52,39 +52,30 @@ export default function DoctorsPage() {
         } catch (err) {
             console.error('Failed to fetch doctors:', err);
             setError('Failed to load doctors. Please try again later.');
-            // Set empty data as fallback
             setDoctors([]);
         } finally {
-            // Use a timeout to simulate network delay for better UX testing
             setTimeout(() => {
                 setLoading(false);
             }, 500);
         }
     };
 
-    // Handle filter changes
     const handleFilterChange = (newFilters) => {
-        // Reset to page 1 when filters change
         setPagination((prev) => ({ ...prev, currentPage: 1 }));
         setFilters((prev) => ({ ...prev, ...newFilters }));
     };
 
-    // Handle pagination
     const handlePageChange = (page) => {
         setPagination((prev) => ({ ...prev, currentPage: page }));
-        // Scroll to top when page changes
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // Fetch doctors when component mounts or filters/pagination change
     useEffect(() => {
         loadDoctors();
     }, [filters, pagination.currentPage]);
 
-    // Demo data for initial render (in case API is not available)
     useEffect(() => {
         if (process.env.NODE_ENV === 'development' && !doctors.length && !loading) {
-            // Sample data for development
             const sampleDoctors = [
                 {
                     _id: '1',
@@ -165,14 +156,11 @@ export default function DoctorsPage() {
                     </h1>
 
                     <div className="flex flex-col md:flex-row">
-                        {/* Sidebar filters */}
                         <div className="md:w-1/4 md:pr-6 mb-6 md:mb-0">
                             <Filters onFilterChange={handleFilterChange} />
                         </div>
 
-                        {/* Main content area */}
                         <div className="md:w-3/4">
-                            {/* Results stats */}
                             <div className="bg-white rounded shadow-md p-4 mb-4">
                                 <p className="text-[#02475b]">
                                     {loading
@@ -181,7 +169,6 @@ export default function DoctorsPage() {
                                 </p>
                             </div>
 
-                            {/* Loading state */}
                             {loading && (
                                 <div className="bg-white rounded shadow-md p-8 flex justify-center">
                                     <div className="text-center">
@@ -191,7 +178,6 @@ export default function DoctorsPage() {
                                 </div>
                             )}
 
-                            {/* Error state */}
                             {error && !loading && (
                                 <div className="bg-white rounded shadow-md p-8">
                                     <div className="text-center text-red-600">
@@ -206,7 +192,6 @@ export default function DoctorsPage() {
                                 </div>
                             )}
 
-                            {/* Empty state */}
                             {!loading && !error && doctors.length === 0 && (
                                 <div className="bg-white rounded shadow-md p-8">
                                     <div className="text-center text-gray-600">
@@ -216,7 +201,6 @@ export default function DoctorsPage() {
                                 </div>
                             )}
 
-                            {/* Doctor cards */}
                             {!loading && !error && doctors.length > 0 && (
                                 <div>
                                     {doctors.map((doctor) => (

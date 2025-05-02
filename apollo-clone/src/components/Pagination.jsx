@@ -8,21 +8,18 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
         if (showEllipsis) {
             if (currentPage <= 4) {
-                // Show first 5 pages, ellipsis, and last page
                 for (let i = 1; i <= 5; i++) {
                     pages.push(i);
                 }
                 pages.push('...');
                 pages.push(totalPages);
             } else if (currentPage >= totalPages - 3) {
-                // Show first page, ellipsis, and last 5 pages
                 pages.push(1);
                 pages.push('...');
                 for (let i = totalPages - 4; i <= totalPages; i++) {
                     pages.push(i);
                 }
             } else {
-                // Show first page, ellipsis, current page and neighbors, ellipsis, last page
                 pages.push(1);
                 pages.push('...');
                 for (let i = currentPage - 1; i <= currentPage + 1; i++) {
@@ -32,7 +29,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 pages.push(totalPages);
             }
         } else {
-            // Show all pages if total pages are 7 or less
             for (let i = 1; i <= totalPages; i++) {
                 pages.push(i);
             }
@@ -55,7 +51,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 <FaChevronLeft size={16} />
             </button>
 
-            {/* Page numbers */}
             {getPageNumbers().map((page, index) => (
                 <button
                     key={index}
@@ -72,7 +67,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 </button>
             ))}
 
-            {/* Next button */}
             <button
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
