@@ -68,7 +68,6 @@ const doctorSchema = new mongoose.Schema({
     timestamps: true
 });
 
-// Create indexes for efficient filtering and searching
 doctorSchema.index({ name: 'text', specialty: 'text', hospital: 'text', location: 'text' });
 doctorSchema.index({ specialty: 1 });
 doctorSchema.index({ experience: 1 });

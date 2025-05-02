@@ -1,6 +1,5 @@
 const Doctor = require('../models/Doctor');
 
-// Add a new doctor
 exports.addDoctor = async (req, res) => {
     try {
         const newDoctor = new Doctor(req.body);
@@ -17,7 +16,6 @@ exports.addDoctor = async (req, res) => {
     }
 };
 
-// List doctors with filtering and pagination
 exports.listDoctors = async (req, res) => {
     try {
         const {
@@ -34,7 +32,6 @@ exports.listDoctors = async (req, res) => {
             search
         } = req.query;
 
-        // Build filter object (only include filters that are provided)
         const filter = {};
 
         if (specialty) filter.specialty = specialty;
@@ -65,16 +62,14 @@ exports.listDoctors = async (req, res) => {
             filter.$text = { $search: search };
         }
 
-        // Build sort object
         let sort = {};
         if (sortBy) {
             const [field, order] = sortBy.split(':');
             sort[field] = order === 'desc' ? -1 : 1;
         } else {
-            sort = { ratings: -1 }; // Default sort by ratings (highest first)
+            sort = { ratings: -1 };
         }
 
-        // Execute query with pagination
         const options = {
             limit: parseInt(limit),
             skip: (parseInt(page) - 1) * parseInt(limit),
