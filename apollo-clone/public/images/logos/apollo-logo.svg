@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+    .primary { fill: #02475b; }
+    .secondary { fill: #00b3e3; }
+  </style>
+  <g>
+    <!-- Logo Icon -->
+    <path class="secondary" d="M25,10 C16.716,10 10,16.716 10,25 C10,33.284 16.716,40 25,40 C33.284,40 40,33.284 40,25 C40,16.716 33.284,10 25,10 Z M25,35 C19.477,35 15,30.523 15,25 C15,19.477 19.477,15 25,15 C30.523,15 35,19.477 35,25 C35,30.523 30.523,35 25,35 Z" />
+    <circle class="primary" cx="25" cy="25" r="5" />
+    
+    <!-- Logo Text -->
+    <text x="50" y="30" class="logo-text primary" font-size="20">APOLLO</text>
+    <text x="135" y="30" class="logo-text secondary" font-size="20">247</text>
+  </g>
+</svg>
