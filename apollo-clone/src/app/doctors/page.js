@@ -8,6 +8,7 @@ import DoctorCard from '../../components/DoctorCard';
 import Pagination from '../../components/Pagination';
 import { fetchDoctors } from '../../lib/api';
 import { generateDoctorsMetadata } from '../../lib/utils';
+import Link from 'next/link';
 
 export default function DoctorsPage() {
     const [doctors, setDoctors] = useState([]);
@@ -168,6 +169,12 @@ export default function DoctorsPage() {
                                         : `Found ${pagination.totalDoctors} doctors matching your criteria`}
                                 </p>
                             </div>
+                            <Link
+                                href="/doctors/add"
+                                className="bg-[#02475b] text-white py-2 px-6 rounded-full hover:bg-opacity-90 transition inline-flex items-center"
+                            >
+                                <span className="mr-2">+</span> Add New Doctor
+                            </Link>
 
                             {loading && (
                                 <div className="bg-white rounded shadow-md p-8 flex justify-center">
@@ -202,7 +209,7 @@ export default function DoctorsPage() {
                             )}
 
                             {!loading && !error && doctors.length > 0 && (
-                                <div>
+                                <div className='my-2'>
                                     {doctors.map((doctor) => (
                                         <DoctorCard key={doctor._id} doctor={doctor} />
                                     ))}
